@@ -416,7 +416,6 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
         /* ==========================================
            2. GALERIA POLAROID DINÂMICA
            ========================================== */
-        const galleryGrid = document.getElementById('gallery-grid');
         const anos = [2023, 2024, 2025, 2026];
         const legendas = [
             "O ano que nossas almas se encontraram.",
@@ -426,10 +425,10 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
         ];
         
         anos.forEach((ano, index) => {
-            const rot = (Math.random() * 6 - 3).toFixed(1); // Rotação aleatória -3 a 3 graus
+            const rot = (Math.random() * 6 - 3).toFixed(1);
             galleryGrid.innerHTML += `
                 <div class="polaroid w-64 flex flex-col items-center" style="transform: rotate(${rot}deg);">
-                    <img src="https://placehold.co/400x450/ffe6e6/d1305a?text=Foto+${ano}" alt="Ano ${ano}" class="w-full h-56 object-cover border border-gray-200">
+                    <img src="${ano}.jpeg" alt="Ano ${ano}" class="w-full h-56 object-cover border border-gray-200">
                     <span class="mt-4 font-cursive text-3xl font-bold text-pink-600">${ano}</span>
                     <p class="text-sm text-center text-gray-500 mt-2 font-medium px-2 leading-tight">${legendas[index]}</p>
                 </div>
