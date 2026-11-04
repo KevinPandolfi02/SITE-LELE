@@ -9,12 +9,11 @@
     <style>
         /* Estilos Globais e Fundo */
         body {
-            /* Fundo gradiente complexo e animado */
             background: linear-gradient(135deg, #4a0e1c, #2d0a1f, #5a1835, #380b22);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             font-family: 'Montserrat', sans-serif;
-            color: #fce7f3; /* pink-100 */
+            color: #fce7f3;
             overflow-x: hidden;
             margin: 0;
         }
@@ -45,7 +44,7 @@
             100% { transform: translateY(-20vh) scale(1.5) rotate(360deg); opacity: 0; }
         }
 
-        /* Confetes Especiais do Final */
+        /* Confetes */
         .confetti {
             position: fixed;
             width: 10px;
@@ -110,7 +109,7 @@
             cursor: not-allowed;
         }
 
-        /* Efeitos e Animações extras */
+        /* Efeitos Extras */
         .shake { animation: shake 0.5s; }
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
@@ -119,271 +118,247 @@
             75% { transform: translateX(-12px) rotate(-2deg); }
         }
 
-        /* Scrollbar Personalizada */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #1a0510; }
         ::-webkit-scrollbar-thumb { background: #d1305a; border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: #ff4d79; }
 
-        /* Botão Fujão */
         #noBtn { position: relative; transition: all 0.2s ease-out; }
     </style>
 </head>
 <body class="relative">
 
-    <!-- Container dos Corações Animados -->
+    <!-- Container dos Corações Animados (Fica sempre visível no fundo) -->
     <div id="hearts-container" class="fixed inset-0 pointer-events-none z-0"></div>
 
-    <!-- Navegação Superior -->
-    <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 glass-panel rounded-full px-6 py-3 z-50 shadow-2xl w-[95%] md:w-auto border border-white/20">
-        <ul class="flex justify-between md:justify-center space-x-2 md:space-x-8 text-xs md:text-sm font-semibold tracking-wider uppercase">
-            <li><a href="#inicio" class="hover:text-pink-400 transition-colors">Início</a></li>
-            <li><a href="#historia" class="hover:text-pink-400 transition-colors">Nossa História</a></li>
-            <li><a href="#galeria" class="hover:text-pink-400 transition-colors">Memórias</a></li>
-            <li><a href="#enigmas" class="hover:text-pink-400 transition-colors">Desafios</a></li>
-        </ul>
-    </nav>
-
-    <!-- CAPÍTULO 1: O Início (Hero) -->
-    <section id="inicio" class="min-h-screen flex flex-col justify-center items-center text-center p-6 relative z-10 pt-20">
-        <div class="glass-panel p-10 md:p-20 rounded-[40px] max-w-4xl w-full mx-auto relative overflow-hidden group">
-            <div class="absolute inset-0 bg-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            
-            <p class="text-pink-300 tracking-[0.3em] uppercase text-sm mb-4">Uma jornada dedicada a você</p>
-            <h2 class="text-3xl md:text-4xl font-light mb-2 text-white">Feliz Aniversário,</h2>
-            <h1 class="text-5xl md:text-7xl text-pink-400 font-cursive font-bold mb-6 leading-tight drop-shadow-lg">
-                Letícia Caroline Pereira Alves dos Reis
-            </h1>
-            
-            <div class="h-px w-32 bg-pink-500/50 mx-auto my-8"></div>
-            
-            <p class="text-lg md:text-2xl text-pink-100/80 font-light italic max-w-2xl mx-auto">
-                "Você não é apenas o meu amor. Você é a poesia que eu nunca soube escrever, o sonho que eu nunca quis acordar e a certeza mais bonita que a vida me deu."
+    <!-- TELA DE BOAS-VINDAS (LER MAIS) -->
+    <div id="welcome-screen" class="fixed inset-0 z-[200] flex flex-col justify-center items-center text-center p-6 bg-black/95 backdrop-blur-xl transition-all duration-1000">
+        <div class="glass-panel p-10 md:p-16 rounded-[40px] max-w-xl w-full shadow-[0_0_50px_rgba(236,72,153,0.3)] border border-pink-500/30 transform transition-transform duration-700 hover:scale-105">
+            <h1 class="text-5xl md:text-6xl text-pink-400 font-cursive font-bold mb-6 drop-shadow-lg">Para Letícia Caroline</h1>
+            <p class="text-lg text-pink-100/90 mb-10 font-light leading-relaxed">
+                Há uma jornada inteira de carinho, lembranças e desafios guardada especialmente para você neste dia 04 de novembro de 2026.
             </p>
-            
-            <p class="mt-8 text-pink-200/60 text-sm animate-pulse">Desça para começar a sua jornada</p>
-            <a href="#historia" class="inline-block mt-4 animate-bounce bg-pink-600/80 backdrop-blur-sm text-white p-4 rounded-full hover:bg-pink-500 transition shadow-[0_0_20px_rgba(236,72,153,0.5)]">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-            </a>
+            <button onclick="abrirSite()" class="px-10 py-4 bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-500 hover:to-rose-400 text-white font-bold rounded-full shadow-[0_0_30px_rgba(236,72,153,0.4)] transition-all transform hover:scale-105 hover:-translate-y-1 text-lg uppercase tracking-wide">
+                Ler mais e entrar na surpresa ✨
+            </button>
         </div>
-    </section>
+    </div>
 
-    <!-- CAPÍTULO 2: A Nossa História (Longa) -->
-    <section id="historia" class="min-h-screen flex flex-col items-center justify-center p-6 relative z-10 py-32">
-        <div class="max-w-4xl w-full">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl text-pink-400 font-cursive font-bold mb-4 drop-shadow-md">Nossa História</h2>
-                <div class="h-1 w-24 bg-gradient-to-r from-transparent via-pink-500 to-transparent mx-auto"></div>
-            </div>
+    <!-- CONTEÚDO PRINCIPAL (Inicialmente oculto) -->
+    <div id="main-content" class="hidden opacity-0 transition-opacity duration-1000">
+        <!-- Navegação Superior -->
+        <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 glass-panel rounded-full px-6 py-3 z-50 shadow-2xl w-[95%] md:w-auto border border-white/20">
+            <ul class="flex justify-between md:justify-center space-x-2 md:space-x-8 text-xs md:text-sm font-semibold tracking-wider uppercase">
+                <li><a href="#inicio" class="hover:text-pink-400 transition-colors">Início</a></li>
+                <li><a href="#historia" class="hover:text-pink-400 transition-colors">Nossa História</a></li>
+                <li><a href="#galeria" class="hover:text-pink-400 transition-colors">Memórias</a></li>
+                <li><a href="#enigmas" class="hover:text-pink-400 transition-colors">Desafios</a></li>
+            </ul>
+        </nav>
 
-            <div class="space-y-12">
-                <!-- Parágrafo 1 -->
-                <div class="glass-panel p-8 rounded-3xl transform transition hover:-translate-y-2">
-                    <h3 class="text-2xl font-semibold text-pink-300 mb-3">O Encontro de Duas Almas</h3>
-                    <p class="text-lg leading-relaxed text-gray-200 text-justify">
-                        Existem pessoas que entram na nossa vida sem fazer ideia do espaço que um dia vão ocupar. Tu foi assim pra mim.
-
-Em abril de 2023, nossos caminhos se cruzaram de uma maneira que, naquela época, parecia tão comum. Era só mais uma conversa, mais um encontro pela internet, mais uma pessoa que eu estava tendo a oportunidade de conhecer. Eu não tinha como imaginar que, por trás daquela tela, estava alguém que se tornaria tão presente nos meus pensamentos, nos meus dias e nos meus planos.
-
-Aos poucos, fui conhecendo teu jeito, tuas conversas, tuas brincadeiras e tua personalidade. Comecei a perceber que existia algo em ti que me fazia querer ficar mais um pouco, conversar mais um pouco e descobrir mais sobre quem tu era. E, quando percebi, já não era mais sobre passar o tempo. Era sobre querer dividir meu tempo contigo.
-
-Gosto de pensar que, antes mesmo de sabermos o que seríamos um para o outro, já estávamos construindo pequenas lembranças que hoje têm um valor enorme. As primeiras conversas, as primeiras brincadeiras, as curiosidades sobre a vida um do outro e aquela sensação de estar conhecendo alguém que, sem perceber, estava se tornando importante.
-
-Tem algo muito especial em olhar pra trás e perceber que uma pessoa que antes era completamente desconhecida hoje é alguém cuja voz, jeito e presença eu reconheceria em meio a tantas outras.
-
-Letícia, talvez tu nunca tenha dimensão de como foi importante ter aparecido na minha vida naquele momento. Não foi preciso um acontecimento extraordinário para que tu se tornasse especial. Foram os pequenos momentos, tua maneira de ser e tudo aquilo que fui descobrindo sobre ti.
-
-Se hoje eu tenho tantas lembranças bonitas pra guardar, é porque um dia tudo começou com duas pessoas que sequer imaginavam o quanto ainda viveriam juntas.
-
-E de todas as coisas que poderiam ter acontecido naquele abril, uma das minhas favoritas foi ter conhecido tu.
-                    </p>
-                </div>
-
-                <!-- Parágrafo 2 -->
-                <div class="glass-panel p-8 rounded-3xl transform transition hover:-translate-y-2 md:ml-12 border-l-4 border-pink-500">
-                    <h3 class="text-2xl font-semibold text-pink-300 mb-3">O Dia 26/05/2023</h3>
-                    <p class="text-lg leading-relaxed text-gray-200 text-justify">
-                        26 de maio de 2023. Uma data que talvez não parecesse tão grande naquele momento, mas que acabou se tornando uma das mais importantes da minha vida.
-
-Foi nesse dia que deixamos de ser apenas duas pessoas se conhecendo e começamos a escrever uma história juntos. Uma história que não veio acompanhada de um manual, que não prometia dias perfeitos e que certamente não nos contou tudo que ainda teríamos pela frente.
-
-Desde então, tivemos momentos que eu gostaria de guardar pra sempre e outros que exigiram paciência, compreensão e maturidade. Tivemos nossas discussões, nossas diferenças e até situações complicadas envolvendo tuas irmãs. Passamos por coisas que, em determinados momentos, pareciam difíceis de administrar, mas também tivemos conquistas, risadas, reconciliações e motivos para comemorar.
-
-E sabe o que acho mais interessante? É perceber como o sentimento foi mudando junto com a gente.
-
-No começo, existia a ansiedade de conversar, a vontade de estar perto e aquela felicidade de descobrir alguém novo. Com o passar do tempo, fui conhecendo muito mais do que a menina por quem tinha me apaixonado. Conheci tuas manias, teus gostos, teus dias bons e ruins, tuas implicâncias e tantas particularidades que hoje fazem parte da pessoa que eu amo.
-
-Aprendi que amar alguém também é conhecer seus detalhes, perceber suas mudanças e entender que uma relação é construída muito além dos momentos felizes. É ter histórias que só duas pessoas conseguem contar da mesma maneira, porque somente elas sabem tudo que existiu por trás de cada lembrança.
-
-Não quero romantizar nossas dificuldades, mas também não quero apagar nenhuma parte da nossa trajetória. Tudo isso faz parte do que vivemos e de como chegamos até aqui.
-
-Hoje, quando olho para essa data, não penso apenas no início de um namoro. Penso em todas as versões nossas que já existiram desde então. Naqueles dois que começaram sem saber quase nada sobre o futuro e nas pessoas que somos agora, depois de tantas experiências compartilhadas.
-
-26/05/2023 não é importante apenas porque foi o dia em que começamos a namorar. É importante porque foi o começo de uma história que eu ainda quero continuar contando.
-
-E se eu pudesse escolher novamente, sabendo de tudo que já vivemos, ainda gostaria de descobrir o restante dessa história contigo.
-                    </p>
-                </div>
-
-                <!-- Parágrafo 3 -->
-                <div class="glass-panel p-8 rounded-3xl transform transition hover:-translate-y-2">
-                    <h3 class="text-2xl font-semibold text-pink-300 mb-3">Celebrando Você Hoje</h3>
-                    <p class="text-lg leading-relaxed text-gray-200 text-justify">
-                        04 de novembro de 2026. Hoje o mundo comemora mais um ano da tua existência, e eu tenho a felicidade de estar aqui para celebrar teus 17 anos.
-
-Hoje, diferente dos outros textos, eu não quero falar sobre nós, sobre nosso relacionamento ou sobre tudo que construímos juntos. Quero falar sobre tu. Sobre a menina que conheci, a pessoa que fui descobrindo com o tempo e a mulher que ainda está se tornando.
-
-Letícia, existe tanta coisa em ti que eu gostaria que tu conseguisse enxergar com o mesmo carinho que eu enxergo. Teu jeito de falar, tuas expressões, tuas manias, tua personalidade e até aquelas pequenas coisas que tu faz sem perceber. Eu poderia passar muito tempo falando de cada detalhe, porque são justamente essas particularidades que fazem de ti alguém impossível de confundir com qualquer outra pessoa.
-
-Eu gosto da tua maneira de existir. Gosto de quando tu fica empolgada contando alguma coisa, de quando quer dividir comigo uma novidade, de quando demonstra carinho do teu próprio jeito e até das vezes em que tu fica brava comigo por eu estar te irritando. São coisas simples, mas que fazem parte de quem tu é, e eu tenho um carinho enorme por elas.
-
-Quero que teus 17 anos sejam uma fase em que tu descubra ainda mais sobre ti mesma. Que tu tenha liberdade para experimentar, aprender, mudar de opinião, fazer escolhas e descobrir aquilo que realmente deseja. Que nunca te falte coragem para buscar teus sonhos e que tu nunca sinta que precisa ser diferente para merecer coisas boas.
-
-Eu espero que tu tenha muitos motivos para sentir orgulho de quem é. Que consiga olhar para si mesma e reconhecer tudo que existe de bonito na tua personalidade, nas tuas capacidades e na pessoa que está construindo. E, principalmente, que nunca deixe de lado aquilo que te torna única.
-
-Se tem algo que desejo para tua vida é que ela te permita conhecer lugares, viver experiências, realizar vontades e colecionar momentos que um dia tu vai lembrar com um sorriso enorme. Tu ainda tem tanta coisa pra descobrir, tanta história pra viver e tantas versões de ti mesma para conhecer.
-
-E eu espero ter a oportunidade de acompanhar muitas delas. Quero continuar descobrindo teus gostos, ouvindo tuas histórias, conhecendo teus sonhos e percebendo aquelas pequenas mudanças que talvez nem tu mesma note.
-
-Hoje, eu queria que tu recebesse todo o carinho que merece. Que pudesse aproveitar teu dia sem preocupações e que, por alguns instantes, percebesse o quanto tua existência é importante para as pessoas que têm a sorte de te conhecer.
-
-Feliz 17 anos, minha Letícia. Que tu nunca perca tua essência, tua curiosidade e essa maneira tão tua de ser.
-
-Eu não tenho como saber tudo que os próximos anos vão trazer, mas tenho certeza de uma coisa: ainda quero conhecer muitas versões tuas, comemorar muitas conquistas e estar presente em muitos outros dias 04 de novembro.
-
-Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o quanto é especial.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CAPÍTULO 3: Galeria (2023 - 2026) -->
-    <section id="galeria" class="py-32 px-6 relative z-10 min-h-screen flex flex-col justify-center">
-        <div class="max-w-6xl mx-auto w-full text-center">
-            <h2 class="text-5xl text-pink-400 font-cursive font-bold mb-4">Galeria do Tempo</h2>
-            <p class="text-pink-200/80 mb-16 text-lg">De 2023 para a eternidade.</p>
-            
-            <div id="gallery-grid" class="flex flex-wrap justify-center gap-10 p-4">
-                <!-- Injetado via JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- CAPÍTULO 4: Os Enigmas -->
-    <section id="enigmas" class="min-h-screen flex flex-col items-center justify-center p-6 relative z-10">
-        <div class="glass-panel p-10 md:p-16 rounded-[40px] max-w-3xl w-full shadow-2xl relative overflow-hidden">
-            <!-- Decoração de fundo -->
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl"></div>
-            
-            <h2 class="text-4xl md:text-5xl text-pink-400 font-cursive font-bold mb-6 text-center">O Cofre das Lembranças</h2>
-            <p class="text-pink-100/90 text-center mb-10 text-lg">Para avançarmos, preciso que você decifre esses enigmas. Só quem vive esse amor conhece as respostas.</p>
-            
-            <div id="quiz-container" class="space-y-8 relative z-10">
+        <!-- CAPÍTULO 1: O Início (Hero) -->
+        <section id="inicio" class="min-h-screen flex flex-col justify-center items-center text-center p-6 relative z-10 pt-20">
+            <div class="glass-panel p-10 md:p-20 rounded-[40px] max-w-4xl w-full mx-auto relative overflow-hidden group">
+                <div class="absolute inset-0 bg-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 
-                <!-- Enigma 1 -->
-                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
-                    <label class="block text-pink-300 font-semibold mb-2 text-xl font-cursive">Enigma 1:</label>
-                    <p class="text-gray-200 mb-4">Qual é o dia do evento mais importante do universo? (Seu aniversário)</p>
-                    <input type="text" id="p1" placeholder="DD/MM" maxlength="5" class="w-full md:w-1/2 px-4 py-3 rounded-xl border border-pink-500/30 focus:border-pink-400 focus:ring-2 focus:ring-pink-400/50 outline-none text-center bg-black/30 text-white font-bold tracking-widest transition-all">
+                <p class="text-pink-300 tracking-[0.3em] uppercase text-sm mb-4">Uma jornada dedicada a você</p>
+                <h2 class="text-3xl md:text-4xl font-light mb-2 text-white">Feliz Aniversário,</h2>
+                <h1 class="text-5xl md:text-7xl text-pink-400 font-cursive font-bold mb-6 leading-tight drop-shadow-lg">
+                    Letícia Caroline Pereira Alves dos Reis
+                </h1>
+                
+                <div class="h-px w-32 bg-pink-500/50 mx-auto my-8"></div>
+                
+                <p class="text-lg md:text-2xl text-pink-100/80 font-light italic max-w-2xl mx-auto">
+                    "Você não é apenas o meu amor. Você é a poesia que eu nunca soube escrever, o sonho que eu nunca quis acordar e a certeza mais bonita que a vida me deu."
+                </p>
+                
+                <p class="mt-8 text-pink-200/60 text-sm animate-pulse">Desça para começar a sua jornada</p>
+                <a href="#historia" class="inline-block mt-4 animate-bounce bg-pink-600/80 backdrop-blur-sm text-white p-4 rounded-full hover:bg-pink-500 transition shadow-[0_0_20px_rgba(236,72,153,0.5)]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO 2: A Nossa História -->
+        <section id="historia" class="min-h-screen flex flex-col items-center justify-center p-6 relative z-10 py-32">
+            <div class="max-w-4xl w-full">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl text-pink-400 font-cursive font-bold mb-4 drop-shadow-md">Nossa História</h2>
+                    <div class="h-1 w-24 bg-gradient-to-r from-transparent via-pink-500 to-transparent mx-auto"></div>
+                </div>
+
+                <div class="space-y-12">
+                    <div class="glass-panel p-8 rounded-3xl transform transition hover:-translate-y-2">
+                        <h3 class="text-2xl font-semibold text-pink-300 mb-3">O Encontro de Duas Almas</h3>
+                        <p class="text-lg leading-relaxed text-gray-200 text-justify">
+                            Existem pessoas que entram na nossa vida sem fazer ideia do espaço que um dia vão ocupar. Tu foi assim pra mim.
+                            <br><br>Em abril de 2023, nossos caminhos se cruzaram de uma maneira que, naquela época, parecia tão comum. Era só mais uma conversa, mais um encontro pela internet, mais uma pessoa que eu estava tendo a oportunidade de conhecer. Eu não tinha como imaginar que, por trás daquela tela, estava alguém que se tornaria tão presente nos meus pensamentos, nos meus dias e nos meus planos.
+                            <br><br>Aos poucos, fui conhecendo teu jeito, tuas conversas, tuas brincadeiras e tua personalidade. Comecei a perceber que existia algo em ti que me fazia querer ficar mais um pouco, conversar mais um pouco e descobrir mais sobre quem tu era. E, quando percebi, já não era mais sobre passar o tempo. Era sobre querer dividir meu tempo contigo.
+                            <br><br>Gosto de pensar que, antes mesmo de sabermos o que seríamos um para o outro, já estávamos construindo pequenas lembranças que hoje têm um valor enorme. As primeiras conversas, as primeiras brincadeiras, as curiosidades sobre a vida um do outro e aquela sensação de estar conhecendo alguém que, sem perceber, estava se tornando importante.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-8 rounded-3xl transform transition hover:-translate-y-2 md:ml-12 border-l-4 border-pink-500">
+                        <h3 class="text-2xl font-semibold text-pink-300 mb-3">O Dia 26/05/2023</h3>
+                        <p class="text-lg leading-relaxed text-gray-200 text-justify">
+                            26 de maio de 2023. Uma data que talvez não parecesse tão grande naquele momento, mas que acabou se tornando uma das mais importantes da minha vida.
+                            <br><br>Foi nesse dia que deixamos de ser apenas duas pessoas se conhecendo e começamos a escrever uma história juntos. Uma história que não veio acompanhada de um manual, que não prometia dias perfeitos e que certamente não nos contou tudo que ainda teríamos pela frente.
+                            <br><br>Desde então, tivemos momentos que eu gostaria de guardar pra sempre e outros que exigiram paciência, compreensão e maturidade. Tivemos nossas discussões, nossas diferenças e até situações complicadas envolvendo tuas irmãs. Passamos por coisas que, em determinados momentos, pareciam difíceis de administrar, mas também tivemos conquistas, risadas, reconciliações e motivos para comemorar.
+                            <br><br>E se eu pudesse escolher novamente, sabendo de tudo que já vivemos, ainda gostaria de descobrir o restante dessa história contigo.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-8 rounded-3xl transform transition hover:-translate-y-2">
+                        <h3 class="text-2xl font-semibold text-pink-300 mb-3">Celebrando Você Hoje</h3>
+                        <p class="text-lg leading-relaxed text-gray-200 text-justify">
+                            04 de novembro de 2026. Hoje o mundo comemora mais um ano da tua existência, e eu tenho a felicidade de estar aqui para celebrar teus 17 anos.
+                            <br><br>Hoje, diferente dos outros textos, eu não quero falar sobre nós, sobre nosso relacionamento ou sobre tudo que construímos juntos. Quero falar sobre tu. Sobre a menina que conheci, a pessoa que fui descobrindo com o tempo e a mulher que ainda está se tornando.
+                            <br><br>Eu gosto da tua maneira de existir. Gosto de quando tu fica empolgada contando alguma coisa, de quando quer dividir comigo uma novidade, de quando demonstra carinho do teu próprio jeito e até das vezes em que tu fica brava comigo por eu estar te irritando. São coisas simples, mas que fazem parte de quem tu é, e eu tenho um carinho enorme por elas.
+                            <br><br>Quero que teus 17 anos sejam uma fase em que tu descubra ainda mais sobre ti mesma. Que tu tenha liberdade para experimentar, aprender, mudar de opinião, fazer escolhas e descobrir aquilo que realmente deseja.
+                            <br><br>Feliz 17 anos, minha Letícia. Que tu nunca perca tua essência, tua curiosidade e essa maneira tão tua de ser. Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o quanto é especial.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO 3: Galeria -->
+        <section id="galeria" class="py-32 px-6 relative z-10 min-h-screen flex flex-col justify-center">
+            <div class="max-w-6xl mx-auto w-full text-center">
+                <h2 class="text-5xl text-pink-400 font-cursive font-bold mb-4">Galeria do Tempo</h2>
+                <p class="text-pink-200/80 mb-16 text-lg">De 2023 para a eternidade.</p>
+                <div id="gallery-grid" class="flex flex-wrap justify-center gap-10 p-4"></div>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO 4: Os Enigmas -->
+        <section id="enigmas" class="min-h-screen flex flex-col items-center justify-center p-6 relative z-10">
+            <div class="glass-panel p-10 md:p-16 rounded-[40px] max-w-3xl w-full shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl"></div>
+                
+                <h2 class="text-4xl md:text-5xl text-pink-400 font-cursive font-bold mb-6 text-center">O Cofre das Lembranças</h2>
+                <p class="text-pink-100/90 text-center mb-10 text-lg">Para avançarmos, preciso que você decifre esses enigmas. Só quem vive esse amor conhece as respostas.</p>
+                
+                <div id="quiz-container" class="space-y-8 relative z-10">
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
+                        <label class="block text-pink-300 font-semibold mb-2 text-xl font-cursive">Enigma 1:</label>
+                        <p class="text-gray-200 mb-4">Qual é o dia do evento mais importante do universo? (Seu aniversário)</p>
+                        <input type="text" id="p1" placeholder="DD/MM" maxlength="5" class="w-full md:w-1/2 px-4 py-3 rounded-xl border border-pink-500/30 focus:border-pink-400 focus:ring-2 focus:ring-pink-400/50 outline-none text-center bg-black/30 text-white font-bold tracking-widest transition-all">
+                    </div>
+                    
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
+                        <label class="block text-pink-300 font-semibold mb-2 text-xl font-cursive">Enigma 2:</label>
+                        <p class="text-gray-200 mb-4">Para mim, qual é a coisa que eu mais te falo no mundo?</p>
+                        <input type="text" id="p2" placeholder="Digite a resposta..." class="w-full px-4 py-3 rounded-xl border border-pink-500/30 focus:border-pink-400 focus:ring-2 focus:ring-pink-400/50 outline-none text-center bg-black/30 text-white font-bold transition-all">
+                    </div>
+
+                    <div id="quiz-error" class="hidden bg-red-900/50 border border-red-500 text-red-200 p-4 rounded-xl text-center font-medium">
+                        Acesso negado. O amor precisa de atenção aos detalhes! Tente novamente. 💔
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button onclick="checkEnigmas()" class="px-12 py-4 bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-500 hover:to-rose-400 text-white font-bold rounded-full shadow-[0_0_30px_rgba(236,72,153,0.4)] transition-all transform hover:scale-105 hover:-translate-y-1 text-lg uppercase tracking-wide">
+                            Desvendar Cadeado 🔓
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAPÍTULO 5: O Guardião Final (Jogo da Velha) -->
+        <section id="guardiao" class="min-h-screen flex-col items-center justify-center p-6 relative z-10 hidden transition-opacity duration-1000 opacity-0">
+            <div class="glass-panel p-10 rounded-[40px] max-w-2xl w-full shadow-2xl text-center">
+                <h2 class="text-4xl text-pink-400 font-cursive font-bold mb-4">O Guardião do Coração</h2>
+                <p class="text-gray-300 mb-8">
+                    Você passou pelos enigmas, mas agora deve enfrentar o Robô da Saudade. 
+                    <br>Vença ou empate comigo no Jogo da Velha para provar seu valor e desbloquear a Grande Surpresa!
+                    <br><span class="text-pink-400 font-bold">Você joga com: ❤️</span> | <span class="text-blue-400 font-bold">Robô: 🤖</span>
+                </p>
+
+                <div class="tic-tac-toe-grid" id="board"></div>
+
+                <div id="game-message" class="mt-8 text-2xl font-bold h-10 text-pink-300">
+                    Sua vez, princesa!
                 </div>
                 
-                <!-- Enigma 2 -->
-                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
-                    <label class="block text-pink-300 font-semibold mb-2 text-xl font-cursive">Enigma 2:</label>
-                    <p class="text-gray-200 mb-4">Para mim, qual é a coisa que eu mais te falo no mundo?</p>
-                    <input type="text" id="p2" placeholder="Digite a resposta..." class="w-full px-4 py-3 rounded-xl border border-pink-500/30 focus:border-pink-400 focus:ring-2 focus:ring-pink-400/50 outline-none text-center bg-black/30 text-white font-bold transition-all">
-                </div>
+                <button id="btn-unlock-finale" onclick="revealFinale()" class="mt-6 hidden mx-auto px-10 py-3 bg-green-600 hover:bg-green-500 text-white font-bold rounded-full shadow-[0_0_20px_rgba(34,197,94,0.5)] transition-all animate-bounce">
+                    Abrir Grande Surpresa 🎁
+                </button>
+            </div>
+        </section>
 
-                <div id="quiz-error" class="hidden bg-red-900/50 border border-red-500 text-red-200 p-4 rounded-xl text-center font-medium">
-                    Acesso negado. O amor precisa de atenção aos detalhes! Tente novamente. 💔
-                </div>
-
-                <div class="text-center pt-4">
-                    <button onclick="checkEnigmas()" class="px-12 py-4 bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-500 hover:to-rose-400 text-white font-bold rounded-full shadow-[0_0_30px_rgba(236,72,153,0.4)] transition-all transform hover:scale-105 hover:-translate-y-1 text-lg uppercase tracking-wide">
-                        Desvendar Cadeado 🔓
+        <!-- CAPÍTULO 6: A Grande Surpresa (Finale) -->
+        <section id="surpresa-final" class="min-h-screen flex-col items-center justify-center p-4 relative hidden fixed inset-0 w-full h-full z-[100] bg-black/80 backdrop-blur-xl">
+            
+            <div id="question-box" class="glass-panel p-10 md:p-20 rounded-[40px] max-w-3xl w-full text-center shadow-2xl relative border-pink-500/50">
+                <h2 class="text-5xl md:text-6xl text-pink-400 font-cursive font-bold mb-8">Letícia...</h2>
+                <p class="text-2xl text-white mb-16 font-medium leading-relaxed">
+                    Você aceita continuar sendo o grande amor da minha vida, me aturar por todos os seus próximos aniversários e ser minha pra sempre?
+                </p>
+                
+                <div id="final-question-container" class="relative min-h-[150px] w-full flex justify-center items-center">
+                    <button id="yesBtn" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-bold py-4 px-16 rounded-full shadow-[0_0_30px_rgba(34,197,94,0.6)] transition-transform hover:scale-110 text-2xl z-20 uppercase tracking-widest">
+                        SIM! ❤️
+                    </button>
+                    <button id="noBtn" class="bg-gray-700/80 hover:bg-gray-600 text-gray-300 font-bold py-4 px-10 rounded-full shadow transition-colors text-xl z-10 ml-8">
+                        Não
                     </button>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- CAPÍTULO 5: O Guardião Final (Jogo da Velha) - Inicialmente Oculto -->
-    <section id="guardiao" class="min-h-screen flex-col items-center justify-center p-6 relative z-10 hidden transition-opacity duration-1000 opacity-0">
-        <div class="glass-panel p-10 rounded-[40px] max-w-2xl w-full shadow-2xl text-center">
-            <h2 class="text-4xl text-pink-400 font-cursive font-bold mb-4">O Guardião do Coração</h2>
-            <p class="text-gray-300 mb-8">
-                Você passou pelos enigmas, mas agora deve enfrentar o Robô da Saudade. 
-                <br>Vença ou empate comigo no Jogo da Velha para provar seu valor e desbloquear a Grande Surpresa!
-                <br><span class="text-pink-400 font-bold">Você joga com: ❤️</span> | <span class="text-blue-400 font-bold">Robô: 🤖</span>
-            </p>
-
-            <div class="tic-tac-toe-grid" id="board">
-                <!-- Gerado via JS -->
+            <div id="success-box" class="hidden glass-panel p-8 md:p-16 rounded-[40px] max-w-4xl w-full text-center shadow-[0_0_50px_rgba(236,72,153,0.8)] border border-pink-400/50 overflow-y-auto max-h-[90vh]">
+                <div class="text-7xl mb-6 animate-bounce">🎉💍🥰</div>
+                <h2 class="text-4xl md:text-6xl text-pink-400 font-cursive font-bold mb-8">Feliz Aniversário, Meu Amor!</h2>
+                
+                <div class="space-y-6 text-lg md:text-xl text-gray-200 text-justify font-light leading-relaxed">
+                    <p>Eu sabia que você diria sim! Não importa o quanto o botão tentasse fugir, o nosso destino é ficarmos juntos.</p>
+                    <p>
+                        E hoje você completa 17 anos, meu amor, e eu desejo que a vida te proporcione tudo de mais lindo que existe, porque tu merece o mundo inteiro. Nunca esquece o quanto tu é incrível, especial e maravilhosa. Pra mim, tu é a mulher mais linda que existe, e não há outra mulher no mundo além de você. É somente você que meus olhos procuram, que meu coração deseja e que eu quero ao meu lado por toda a minha vida. Não importa quantas pessoas existam nesse mundo, nenhuma jamais vai se comparar a você.
+                    </p>
+                    <p>
+                        Eu prometo te amar para sempre, continuar te escolhendo todos os dias e estar ao teu lado em cada fase, comemorando tuas conquistas e enfrentando qualquer dificuldade contigo. Quero viver muitos outros aniversários ao teu lado, realizar nossos sonhos e construir uma vida inteira de momentos juntos.
+                    </p>
+                    <p>
+                        Se eu pudesse escolher entre todas as estrelas do céu, ainda escolheria você, porque nenhuma delas brilha tanto quanto você. Se o mundo inteiro fosse meu, ainda faltaria alguma coisa: ter você ao meu lado.
+                    <p class="text-center text-3xl text-pink-400 font-cursive font-bold mt-10">
+                        Feliz 17 anos, minha princesa. Eu te amo infinitamente!<br>Parabéns, minha vida! ❤️
+                    </p>
+                </div>
             </div>
+        </section>
 
-            <div id="game-message" class="mt-8 text-2xl font-bold h-10 text-pink-300">
-                Sua vez, princesa!
-            </div>
-            
-            <button id="btn-unlock-finale" onclick="revealFinale()" class="mt-6 hidden mx-auto px-10 py-3 bg-green-600 hover:bg-green-500 text-white font-bold rounded-full shadow-[0_0_20px_rgba(34,197,94,0.5)] transition-all animate-bounce">
-                Abrir Grande Surpresa 🎁
-            </button>
-        </div>
-    </section>
-
-    <!-- CAPÍTULO 6: A Grande Surpresa (Finale) - Inicialmente Oculto -->
-    <section id="surpresa-final" class="min-h-screen flex-col items-center justify-center p-4 relative hidden fixed inset-0 w-full h-full z-[100] bg-black/80 backdrop-blur-xl">
-        
-        <!-- Estado 1: A Pergunta -->
-        <div id="question-box" class="glass-panel p-10 md:p-20 rounded-[40px] max-w-3xl w-full text-center shadow-2xl relative border-pink-500/50">
-            <h2 class="text-5xl md:text-6xl text-pink-400 font-cursive font-bold mb-8">Letícia...</h2>
-            <p class="text-2xl text-white mb-16 font-medium leading-relaxed">
-                Você aceita continuar sendo o grande amor da minha vida, me aturar por todos os seus próximos aniversários e ser minha pra sempre?
-            </p>
-            
-            <div id="final-question-container" class="relative min-h-[150px] w-full flex justify-center items-center">
-                <button id="yesBtn" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-bold py-4 px-16 rounded-full shadow-[0_0_30px_rgba(34,197,94,0.6)] transition-transform hover:scale-110 text-2xl z-20 uppercase tracking-widest">
-                    SIM! ❤️
-                </button>
-                <button id="noBtn" class="bg-gray-700/80 hover:bg-gray-600 text-gray-300 font-bold py-4 px-10 rounded-full shadow transition-colors text-xl z-10 ml-8">
-                    Não
-                </button>
-            </div>
-        </div>
-
-        <!-- Estado 2: O Texto Épico Final -->
-        <div id="success-box" class="hidden glass-panel p-8 md:p-16 rounded-[40px] max-w-4xl w-full text-center shadow-[0_0_50px_rgba(236,72,153,0.8)] border border-pink-400/50 overflow-y-auto max-h-[90vh]">
-            <div class="text-7xl mb-6 animate-bounce">🎉💍🥰</div>
-            <h2 class="text-4xl md:text-6xl text-pink-400 font-cursive font-bold mb-8">Feliz Aniversário, Meu Amor!</h2>
-            
-            <div class="space-y-6 text-lg md:text-xl text-gray-200 text-justify font-light leading-relaxed">
-                <p>
-                    Eu sabia que você diria sim! Não importa o quanto o botão tentasse fugir, o nosso destino é ficarmos juntos. 
-                </p>
-                <p>
-                    E hoje você completa 17 anos, meu amor, e eu desejo que a vida te proporcione tudo de mais lindo que existe, porque tu merece o mundo inteiro. Nunca esquece o quanto tu é incrível, especial e maravilhosa. Pra mim, tu é a mulher mais linda que existe, e não há outra mulher no mundo além de você. É somente você que meus olhos procuram, que meu coração deseja e que eu quero ao meu lado por toda a minha vida. Não importa quantas pessoas existam nesse mundo, nenhuma jamais vai se comparar a você.
-                </p>
-                <p>
-                    Eu prometo te amar para sempre, continuar te escolhendo todos os dias e estar ao teu lado em cada fase, comemorando tuas conquistas e enfrentando qualquer dificuldade contigo. Quero viver muitos outros aniversários ao teu lado, realizar nossos sonhos e construir uma vida inteira de momentos juntos.
-                </p>
-                <p>
-                    Se eu pudesse escolher entre todas as estrelas do céu, ainda escolheria você, porque nenhuma delas brilha tanto quanto você. Se o mundo inteiro fosse meu, ainda faltaria alguma coisa: ter você ao meu lado.
-                <p class="text-center text-3xl text-pink-400 font-cursive font-bold mt-10">
-                    Feliz 17 anos, minha princesa. Eu te amo infinitamente!<br>Parabéns, minha vida! ❤️
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rodapé -->
-    <footer class="glass-panel border-t border-white/10 py-8 text-center relative z-10 mt-20">
-        <p class="text-pink-200/80 font-medium">Feito com todo o amor do universo para a <span class="font-bold text-pink-400">Letícia</span> ❤️</p>
-        <p class="text-xs text-pink-200/40 mt-2">© 2023 - Para Sempre</p>
-    </footer>
+        <footer class="glass-panel border-t border-white/10 py-8 text-center relative z-10 mt-20">
+            <p class="text-pink-200/80 font-medium">Feito com todo o amor do universo para a <span class="font-bold text-pink-400">Letícia</span> ❤️</p>
+            <p class="text-xs text-pink-200/40 mt-2">© 2023 - Para Sempre</p>
+        </footer>
+    </div>
 
     <!-- SCRIPT GERAL -->
     <script>
+        /* ==========================================
+           0. ABERTURA DO SITE (O Suspense Inicial)
+           ========================================== */
+        function abrirSite() {
+            const welcome = document.getElementById('welcome-screen');
+            const main = document.getElementById('main-content');
+            
+            // Inicia a animação de saída da tela de bloqueio
+            welcome.classList.add('opacity-0', 'scale-110');
+            
+            setTimeout(() => {
+                welcome.classList.add('hidden'); // Some com a tela
+                main.classList.remove('hidden'); // Exibe a estrutura do site
+                
+                // Pequeno delay para a opacidade subir de forma suave
+                setTimeout(() => {
+                    main.classList.remove('opacity-0');
+                }, 50);
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 800);
+        }
+
         /* ==========================================
            1. EFEITOS DE FUNDO (Corações)
            ========================================== */
@@ -400,7 +375,7 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
                 let size = Math.random() * 20 + 15;
                 let left = Math.random() * 100;
                 let duration = Math.random() * 20 + 10;
-                let delay = Math.random() * -20; // Starts at random points
+                let delay = Math.random() * -20;
                 
                 heart.style.left = `${left}vw`;
                 heart.style.fontSize = `${size}px`;
@@ -415,24 +390,29 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
         /* ==========================================
            2. GALERIA POLAROID DINÂMICA
            ========================================== */
-        const anos = [2023, 2024, 2025, 2026];
-        const legendas = [
-            "O ano que nossas almas se encontraram.",
-            "O amor crescendo a cada dia.",
-            "Construindo sonhos lado a lado.",
-            "Um futuro infinito nos aguarda."
-        ];
-        
-        anos.forEach((ano, index) => {
-            const rot = (Math.random() * 6 - 3).toFixed(1);
-            galleryGrid.innerHTML += `
-                <div class="polaroid w-64 flex flex-col items-center" style="transform: rotate(${rot}deg);">
-                    <img src="${ano}.jpeg" alt="Ano ${ano}" class="w-full h-56 object-cover border border-gray-200">
-                    <span class="mt-4 font-cursive text-3xl font-bold text-pink-600">${ano}</span>
-                    <p class="text-sm text-center text-gray-500 mt-2 font-medium px-2 leading-tight">${legendas[index]}</p>
-                </div>
-            `;
-        });
+        const galleryGrid = document.getElementById('gallery-grid');
+        if(galleryGrid) {
+            const anos = [2023, 2024, 2025, 2026];
+            const legendas = [
+                "O ano que nossas almas se encontraram.",
+                "O amor crescendo a cada dia.",
+                "Construindo sonhos lado a lado.",
+                "Um futuro infinito nos aguarda."
+            ];
+            
+            let htmlGaleria = '';
+            anos.forEach((ano, index) => {
+                const rot = (Math.random() * 6 - 3).toFixed(1);
+                htmlGaleria += `
+                    <div class="polaroid w-64 flex flex-col items-center" style="transform: rotate(${rot}deg);">
+                        <img src="${ano}.jpeg" alt="Ano ${ano}" onerror="this.src='https://placehold.co/400x450/ffe6e6/d1305a?text=${ano}'" class="w-full h-56 object-cover border border-gray-200">
+                        <span class="mt-4 font-cursive text-3xl font-bold text-pink-600">${ano}</span>
+                        <p class="text-sm text-center text-gray-500 mt-2 font-medium px-2 leading-tight">${legendas[index]}</p>
+                    </div>
+                `;
+            });
+            galleryGrid.innerHTML = htmlGaleria;
+        }
 
         /* ==========================================
            3. VALIDAÇÃO DOS ENIGMAS (MÁSCARA E CHECK)
@@ -484,9 +464,9 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
         const unlockBtn = document.getElementById('btn-unlock-finale');
         
         const WIN_CONDITIONS = [
-            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas
-            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
-            [0, 4, 8], [2, 4, 6]             // Diagonais
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
         ];
 
         function createBoard() {
@@ -503,13 +483,11 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
         function handleCellClick(index) {
             if (board[index] !== "" || !gameActive) return;
             
-            // Jogada do Player
             updateCell(index, "❤️");
             checkWinner();
             
             if (gameActive) {
                 gameMessage.innerText = "Pensando...";
-                // Trava tabuleiro enquanto bot joga
                 Array.from(boardElement.children).forEach(c => c.classList.add('disabled'));
                 setTimeout(botPlay, 600);
             }
@@ -519,7 +497,7 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
             board[index] = symbol;
             const cell = boardElement.children[index];
             cell.innerText = symbol;
-            cell.classList.add('disabled'); // não clica mais
+            cell.classList.add('disabled');
         }
 
         function botPlay() {
@@ -527,7 +505,6 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
             board.forEach((val, idx) => { if (val === "") emptyCells.push(idx); });
             
             if (emptyCells.length > 0) {
-                // Bot fácil: escolhe aleatório
                 const randomIdx = emptyCells[Math.floor(Math.random() * emptyCells.length)];
                 updateCell(randomIdx, "🤖");
                 checkWinner();
@@ -560,7 +537,6 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
                     gameMessage.innerHTML = "<span class='text-green-400'>Você venceu! Impressionante! 🥰</span>";
                     endGameUnlock();
                 } else {
-                    // Robô venceu (raro, pois ele joga aleatório, mas possível)
                     gameMessage.innerHTML = "<span class='text-red-400'>O robô ganhou! Mas o amor sempre vence. Tente de novo! 🔄</span>";
                     setTimeout(resetGame, 2000);
                 }
@@ -568,7 +544,6 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
             }
 
             if (!board.includes("")) {
-                // Empate
                 gameActive = false;
                 gameMessage.innerHTML = "<span class='text-yellow-400'>Empate! O Guardião reconhece sua força. 🛡️</span>";
                 endGameUnlock();
@@ -587,7 +562,6 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
             createBoard();
         }
 
-        // Inicializa o tabuleiro ao carregar
         createBoard();
 
         /* ==========================================
@@ -608,17 +582,15 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
             const boxRect = containerBox.getBoundingClientRect();
             const btnRect = noBtn.getBoundingClientRect();
             
-            // Limites baseados na caixa de vidro
             const maxX = boxRect.width - btnRect.width - 40;
             const maxY = boxRect.height - btnRect.height - 40;
             
-            // Posição aleatória segura
             const newX = 20 + Math.random() * maxX;
             const newY = 20 + Math.random() * maxY;
             
             noBtn.style.left = `${newX}px`;
             noBtn.style.top = `${newY}px`;
-            noBtn.style.transform = `rotate(${(Math.random()-0.5)*30}deg)`; // Rotação louca
+            noBtn.style.transform = `rotate(${(Math.random()-0.5)*30}deg)`;
         }
 
         noBtn.addEventListener('mouseover', moveBtn);
@@ -634,8 +606,6 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
         yesBtn.addEventListener('click', () => {
             document.getElementById('question-box').classList.add('hidden');
             successBox.classList.remove('hidden');
-            
-            // Disparar chuva de confetes
             createConfetti();
         });
 
@@ -648,7 +618,6 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
                 conf.style.left = `${Math.random() * 100}vw`;
                 conf.style.top = `-${Math.random() * 20}vh`;
                 
-                // Formatos variados
                 if(Math.random() > 0.5) conf.style.borderRadius = '50%';
                 
                 let duration = Math.random() * 3 + 2;
@@ -656,8 +625,6 @@ Parabéns, minha dengosa. Hoje o dia é teu, e eu espero que tu consiga sentir o
                 conf.style.animationDelay = `${Math.random() * 2}s`;
                 
                 document.body.appendChild(conf);
-                
-                // Limpar confetes depois de um tempo
                 setTimeout(() => conf.remove(), (duration + 2) * 1000);
             }
         }
