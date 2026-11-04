@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Letícia, Uma Jornada de Amor ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Globais e Fundo */
+        body {
+            /* Fundo gradiente complexo e animado */
+            background: linear-gradient(135deg, #4a0e1c, #2d0a1f, #5a1835, #380b22);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            font-family: 'Montserrat', sans-serif;
+            color: #fce7f3; /* pink-100 */
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .font-cursive { font-family: 'Dancing Script', cursive; }
+
+        /* Corações Animados */
+        .heart-bg {
+            position: fixed;
+            color: rgba(255, 105, 180, 0.4);
+            user-select: none;
+            pointer-events: none;
+            animation: floatUp linear infinite;
+            z-index: 0;
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) scale(0.5) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-20vh) scale(1.5) rotate(360deg); opacity: 0; }
+        }
+
+        /* Confetes Especiais do Final */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            animation: fall 4s linear infinite;
+            z-index: 999;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(720deg); }
+        }
+
+        /* Efeito Glassmorphism Premium */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Galeria Polaroid Interativa */
+        .polaroid {
+            background: #fdfbfb;
+            padding: 12px 12px 30px 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #333;
+        }
+        .polaroid:hover {
+            transform: scale(1.1) translateY(-10px) rotate(0deg) !important;
+            z-index: 20;
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4);
+        }
+
+        /* Tabuleiro do Jogo da Velha */
+        .tic-tac-toe-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .tic-tac-toe-cell {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255, 192, 203, 0.4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tic-tac-toe-cell:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+        .tic-tac-toe-cell.disabled {
+            cursor: not-allowed;
+        }
+
+        /* Efeitos e Animações extras */
+        .shake { animation: shake 0.5s; }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-12px) rotate(-2deg); }
+            50% { transform: translateX(12px) rotate(2deg); }
+            75% { transform: translateX(-12px) rotate(-2deg); }
+        }
+
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #1a0510; }
+        ::-webkit-scrollbar-thumb { background: #d1305a; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff4d79; }
+
+        /* Botão Fujão */
+        #noBtn { position: relative; transition: all 0.2s ease-out; }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Container dos Corações Animados -->
+    <div id="hearts-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Navegação Superior -->
+    <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 glass-panel rounded-full px-6 py-3 z-50 shadow-2xl w-[95%] md:w-auto border border-white/20">
+        <ul class="flex justify-between md:justify-center space-x-2 md:space-x-8 text-xs md:text-sm font-semibold tracking-wider uppercase">
+            <li><a href="#inicio" class="hover:text-pink-400 transition-colors">Início</a></li>
+            <li><a href="#historia" class="hover:text-pink-400 transition-colors">Nossa História</a></li>
+            <li><a href="#galeria" class="hover:text-pink-400 transition-colors">Memórias</a></li>
+            <li><a href="#enigmas" class="hover:text-pink-400 transition-colors">Desafios</a></li>
+        </ul>
+    </nav>
+
+    <!-- CAPÍTULO 1: O Início (Hero) -->
+    <section id="inicio" class="min-h-screen flex flex-col justify-center items-center text-center p-6 relative z-10 pt-20">
+        <div class="glass-panel p-10 md:p-20 rounded-[40px] max-w-4xl w-full mx-auto relative overflow-hidden group">
+            <div class="absolute inset-0 bg-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            
+            <p class="text-pink-300 tracking-[0.3em] uppercase text-sm mb-4">Uma jornada dedicada a você</p>
+            <h2 class="text-3xl md:text-4xl font-light mb-2 text-white">Feliz Aniversário,</h2>
+            <h1 class="text-5xl md:text-7xl text-pink-400 font-cursive font-bold mb-6 leading-tight drop-shadow-lg">
+                Letícia Caroline Pereira Alves dos Reis
+            </h1>
+            
+            <div class="h-px w-32 bg-pink-500/50 mx-auto my-8"></div>
+            
+            <p class="text-lg md:text-2xl text-pink-100/80 font-light italic max-w-2xl mx-auto">
+                "Você não é apenas o meu amor. Você é a poesia que eu nunca soube escrever, o sonho que eu nunca quis acordar e a certeza mais bonita que a vida me deu."
+            </p>
+            
+            <p class="mt-8 text-pink-200/60 text-sm animate-pulse">Desça para começar a sua jornada</p>
+            <a href="#historia" class="inline-block mt-4 animate-bounce bg-pink-600/80 backdrop-blur-sm text-white p-4 rounded-full hover:bg-pink-500 transition shadow-[0_0_20px_rgba(236,72,153,0.5)]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- CAPÍTULO 2: A Nossa História (Longa) -->
+    <section id="historia" class="min-h-screen flex flex-col items-center justify-center p-6 relative z-10 py-32">
+        <div class="max-w-4xl w-full">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl text-pink-400 font-cursive font-bold mb-4 drop-shadow-md">Nossa História</h2>
+                <div class="h-1 w-24 bg-gradient-to-r from-transparent via-pink-500 to-transparent mx-auto"></div>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Parágrafo 1 -->
+                <div class="glass-panel p-8 rounded-3xl transform transition hover:-translate-y-2">
+                    <h3 class="text-2xl font-semibold text-pink-300 mb-3">O Encontro de Duas Almas</h3>
+                    <p class="text-lg leading-relaxed text-gray-200 text-justify">
+                        Há histórias que parecem escritas pelas estrelas muito antes de acontecerem. A nossa é exatamente assim. Quando o ano de 2023 começou, eu era apenas um garoto navegando pelo mundo, sem saber que o destino estava preparando a maior reviravolta da minha vida. E então, você apareceu. Letícia, com seu jeito único, seu sorriso capaz de iluminar as noites mais escuras e uma luz que me cativou desde o primeiro instante.
+                    </p>
+                </div>
+
+                <!-- Parágrafo 2 -->
+                <div class="glass-panel p-8 rounded-3xl transform transition hover:-translate-y-2 md:ml-12 border-l-4 border-pink-500">
+                    <h3 class="text-2xl font-semibold text-pink-300 mb-3">O Dia 26/05/2023</h3>
+                    <p class="text-lg leading-relaxed text-gray-200 text-justify">
+                        Foi nesse dia que decidimos que "eu" e "você" nos tornaríamos "nós". O dia 26 de maio de 2023 não é apenas uma data no calendário; é o marco zero da minha felicidade plena. A partir daquele momento, cada risada compartilhada, cada mensagem de bom dia, cada desafio que superamos juntos, apenas confirmou o que meu coração já gritava: você é a mulher da minha vida.
+                    </p>
+                </div>
+
+                <!-- Parágrafo 3 -->
+                <div class="glass-panel p-8 rounded-3xl transform transition hover:-translate-y-2">
+                    <h3 class="text-2xl font-semibold text-pink-300 mb-3">Celebrando Você Hoje</h3>
+                    <p class="text-lg leading-relaxed text-gray-200 text-justify">
+                        Hoje celebramos o dia em que o mundo ganhou o seu brilho: o seu aniversário. Fazer 17 anos é um momento mágico, mas mágico mesmo é poder ter o privilégio de estar ao seu lado nesse dia. Eu escrevi cada linha deste site pensando em você, em como você merece algo único, gigante e cheio de amor. Mas para chegar ao presente final... você vai ter que me provar que nos conhece tão bem quanto eu te conheço!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAPÍTULO 3: Galeria (2023 - 2026) -->
+    <section id="galeria" class="py-32 px-6 relative z-10 min-h-screen flex flex-col justify-center">
+        <div class="max-w-6xl mx-auto w-full text-center">
+            <h2 class="text-5xl text-pink-400 font-cursive font-bold mb-4">Galeria do Tempo</h2>
+            <p class="text-pink-200/80 mb-16 text-lg">De 2023 para a eternidade.</p>
+            
+            <div id="gallery-grid" class="flex flex-wrap justify-center gap-10 p-4">
+                <!-- Injetado via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CAPÍTULO 4: Os Enigmas -->
+    <section id="enigmas" class="min-h-screen flex flex-col items-center justify-center p-6 relative z-10">
+        <div class="glass-panel p-10 md:p-16 rounded-[40px] max-w-3xl w-full shadow-2xl relative overflow-hidden">
+            <!-- Decoração de fundo -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl"></div>
+            
+            <h2 class="text-4xl md:text-5xl text-pink-400 font-cursive font-bold mb-6 text-center">O Cofre das Lembranças</h2>
+            <p class="text-pink-100/90 text-center mb-10 text-lg">Para avançarmos, preciso que você decifre esses enigmas. Só quem vive esse amor conhece as respostas.</p>
+            
+            <div id="quiz-container" class="space-y-8 relative z-10">
+                
+                <!-- Enigma 1 -->
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
+                    <label class="block text-pink-300 font-semibold mb-2 text-xl font-cursive">Enigma 1:</label>
+                    <p class="text-gray-200 mb-4">Qual é o dia do evento mais importante do universo? (Seu aniversário)</p>
+                    <input type="text" id="p1" placeholder="DD/MM" maxlength="5" class="w-full md:w-1/2 px-4 py-3 rounded-xl border border-pink-500/30 focus:border-pink-400 focus:ring-2 focus:ring-pink-400/50 outline-none text-center bg-black/30 text-white font-bold tracking-widest transition-all">
+                </div>
+                
+                <!-- Enigma 2 -->
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
+                    <label class="block text-pink-300 font-semibold mb-2 text-xl font-cursive">Enigma 2:</label>
+                    <p class="text-gray-200 mb-4">Para mim, qual é o lugar mais seguro, quente e perfeito de todo o mundo?</p>
+                    <input type="text" id="p2" placeholder="Digite a resposta..." class="w-full px-4 py-3 rounded-xl border border-pink-500/30 focus:border-pink-400 focus:ring-2 focus:ring-pink-400/50 outline-none text-center bg-black/30 text-white font-bold transition-all">
+                </div>
+
+                <div id="quiz-error" class="hidden bg-red-900/50 border border-red-500 text-red-200 p-4 rounded-xl text-center font-medium">
+                    Acesso negado. O amor precisa de atenção aos detalhes! Tente novamente. 💔
+                </div>
+
+                <div class="text-center pt-4">
+                    <button onclick="checkEnigmas()" class="px-12 py-4 bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-500 hover:to-rose-400 text-white font-bold rounded-full shadow-[0_0_30px_rgba(236,72,153,0.4)] transition-all transform hover:scale-105 hover:-translate-y-1 text-lg uppercase tracking-wide">
+                        Desvendar Cadeado 🔓
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAPÍTULO 5: O Guardião Final (Jogo da Velha) - Inicialmente Oculto -->
+    <section id="guardiao" class="min-h-screen flex-col items-center justify-center p-6 relative z-10 hidden transition-opacity duration-1000 opacity-0">
+        <div class="glass-panel p-10 rounded-[40px] max-w-2xl w-full shadow-2xl text-center">
+            <h2 class="text-4xl text-pink-400 font-cursive font-bold mb-4">O Guardião do Coração</h2>
+            <p class="text-gray-300 mb-8">
+                Você passou pelos enigmas, mas agora deve enfrentar o Robô da Saudade. 
+                <br>Vença ou empate comigo no Jogo da Velha para provar seu valor e desbloquear a Grande Surpresa!
+                <br><span class="text-pink-400 font-bold">Você joga com: ❤️</span> | <span class="text-blue-400 font-bold">Robô: 🤖</span>
+            </p>
+
+            <div class="tic-tac-toe-grid" id="board">
+                <!-- Gerado via JS -->
+            </div>
+
+            <div id="game-message" class="mt-8 text-2xl font-bold h-10 text-pink-300">
+                Sua vez, princesa!
+            </div>
+            
+            <button id="btn-unlock-finale" onclick="revealFinale()" class="mt-6 hidden mx-auto px-10 py-3 bg-green-600 hover:bg-green-500 text-white font-bold rounded-full shadow-[0_0_20px_rgba(34,197,94,0.5)] transition-all animate-bounce">
+                Abrir Grande Surpresa 🎁
+            </button>
+        </div>
+    </section>
+
+    <!-- CAPÍTULO 6: A Grande Surpresa (Finale) - Inicialmente Oculto -->
+    <section id="surpresa-final" class="min-h-screen flex-col items-center justify-center p-4 relative hidden fixed inset-0 w-full h-full z-[100] bg-black/80 backdrop-blur-xl">
+        
+        <!-- Estado 1: A Pergunta -->
+        <div id="question-box" class="glass-panel p-10 md:p-20 rounded-[40px] max-w-3xl w-full text-center shadow-2xl relative border-pink-500/50">
+            <h2 class="text-5xl md:text-6xl text-pink-400 font-cursive font-bold mb-8">Letícia...</h2>
+            <p class="text-2xl text-white mb-16 font-medium leading-relaxed">
+                Você aceita continuar sendo o grande amor da minha vida, me aturar por todos os seus próximos aniversários e ser minha pra sempre?
+            </p>
+            
+            <div id="final-question-container" class="relative min-h-[150px] w-full flex justify-center items-center">
+                <button id="yesBtn" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-bold py-4 px-16 rounded-full shadow-[0_0_30px_rgba(34,197,94,0.6)] transition-transform hover:scale-110 text-2xl z-20 uppercase tracking-widest">
+                    SIM! ❤️
+                </button>
+                <button id="noBtn" class="bg-gray-700/80 hover:bg-gray-600 text-gray-300 font-bold py-4 px-10 rounded-full shadow transition-colors text-xl z-10 ml-8">
+                    Não
+                </button>
+            </div>
+        </div>
+
+        <!-- Estado 2: O Texto Épico Final -->
+        <div id="success-box" class="hidden glass-panel p-8 md:p-16 rounded-[40px] max-w-4xl w-full text-center shadow-[0_0_50px_rgba(236,72,153,0.8)] border border-pink-400/50 overflow-y-auto max-h-[90vh]">
+            <div class="text-7xl mb-6 animate-bounce">🎉💍🥰</div>
+            <h2 class="text-4xl md:text-6xl text-pink-400 font-cursive font-bold mb-8">Feliz Aniversário, Meu Amor!</h2>
+            
+            <div class="space-y-6 text-lg md:text-xl text-gray-200 text-justify font-light leading-relaxed">
+                <p>
+                    Eu sabia que você diria sim! Não importa o quanto o botão tentasse fugir, o nosso destino é ficarmos juntos. 
+                </p>
+                <p>
+                    Lê, hoje você completa 17 anos. Dezessete anos iluminando este mundo. Desde aquele mágico <strong class="text-pink-300">26 de maio de 2023</strong>, você tem sido a protagonista dos meus melhores sonhos e a realidade mais bonita que eu poderia pedir a Deus.
+                </p>
+                <p>
+                    Eu amo cada detalhe seu. Amo seu sorriso que me desmonta, amo a sua voz que acalma minha ansiedade, amo o seu abraço (sim, o lugar mais seguro do mundo!), e amo até os seus defeitos, porque eles te fazem a garota perfeitamente imperfeita que roubou meu coração.
+                </p>
+                <p>
+                    Neste aniversário, o meu presente é a promessa de que eu estarei aqui. Para segurar sua mão quando o mundo parecer pesado, para rir até a barriga doer nas nossas brincadeiras, e para te lembrar todos os dias o quão incrivelmente linda, inteligente e especial você é.
+                </p>
+                <p class="text-center text-3xl text-pink-400 font-cursive font-bold mt-10">
+                    Eu te amo hoje, amanhã, e por todas as vidas que tivermos.<br>Parabéns, minha princesa! ❤️
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="glass-panel border-t border-white/10 py-8 text-center relative z-10 mt-20">
+        <p class="text-pink-200/80 font-medium">Feito com todo o amor do universo para a <span class="font-bold text-pink-400">Letícia</span> ❤️</p>
+        <p class="text-xs text-pink-200/40 mt-2">© 2023 - Para Sempre</p>
+    </footer>
+
+    <!-- SCRIPT GERAL -->
+    <script>
+        /* ==========================================
+           1. EFEITOS DE FUNDO (Corações)
+           ========================================== */
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const icons = ['❤️', '💖', '💕', '✨', '🌸'];
+            const count = window.innerWidth < 768 ? 25 : 50; 
+            
+            for (let i = 0; i < count; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart-bg');
+                heart.innerText = icons[Math.floor(Math.random() * icons.length)];
+                
+                let size = Math.random() * 20 + 15;
+                let left = Math.random() * 100;
+                let duration = Math.random() * 20 + 10;
+                let delay = Math.random() * -20; // Starts at random points
+                
+                heart.style.left = `${left}vw`;
+                heart.style.fontSize = `${size}px`;
+                heart.style.animationDuration = `${duration}s`;
+                heart.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        /* ==========================================
+           2. GALERIA POLAROID DINÂMICA
+           ========================================== */
+        const galleryGrid = document.getElementById('gallery-grid');
+        const anos = [2023, 2024, 2025, 2026];
+        const legendas = [
+            "O ano que nossas almas se encontraram.",
+            "O amor crescendo a cada dia.",
+            "Construindo sonhos lado a lado.",
+            "Um futuro infinito nos aguarda."
+        ];
+        
+        anos.forEach((ano, index) => {
+            const rot = (Math.random() * 6 - 3).toFixed(1); // Rotação aleatória -3 a 3 graus
+            galleryGrid.innerHTML += `
+                <div class="polaroid w-64 flex flex-col items-center" style="transform: rotate(${rot}deg);">
+                    <img src="https://placehold.co/400x450/ffe6e6/d1305a?text=Foto+${ano}" alt="Ano ${ano}" class="w-full h-56 object-cover border border-gray-200">
+                    <span class="mt-4 font-cursive text-3xl font-bold text-pink-600">${ano}</span>
+                    <p class="text-sm text-center text-gray-500 mt-2 font-medium px-2 leading-tight">${legendas[index]}</p>
+                </div>
+            `;
+        });
+
+        /* ==========================================
+           3. VALIDAÇÃO DOS ENIGMAS (MÁSCARA E CHECK)
+           ========================================== */
+        const p1 = document.getElementById('p1');
+        p1.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, ''); // Remove não números
+            if (value.length > 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        function checkEnigmas() {
+            const val1 = p1.value.trim();
+            const val2 = document.getElementById('p2').value.trim().toLowerCase();
+            const errorMsg = document.getElementById('quiz-error');
+            const container = document.getElementById('quiz-container');
+
+            const dateCorrect = (val1 === '04/11');
+            const wordCorrect = val2.includes('abraço') || val2.includes('abraco');
+
+            if (dateCorrect && wordCorrect) {
+                errorMsg.classList.add('hidden');
+                
+                // Desbloqueia Jogo da Velha
+                const guardiao = document.getElementById('guardiao');
+                guardiao.classList.remove('hidden');
+                setTimeout(() => {
+                    guardiao.classList.remove('opacity-0');
+                    guardiao.classList.add('opacity-100', 'flex');
+                    guardiao.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+
+            } else {
+                errorMsg.classList.remove('hidden');
+                container.classList.add('shake');
+                setTimeout(() => container.classList.remove('shake'), 500);
+            }
+        }
+
+        /* ==========================================
+           4. JOGO DA VELHA (TIC-TAC-TOE)
+           ========================================== */
+        let board = ["", "", "", "", "", "", "", "", ""];
+        let gameActive = true;
+        const boardElement = document.getElementById('board');
+        const gameMessage = document.getElementById('game-message');
+        const unlockBtn = document.getElementById('btn-unlock-finale');
+        
+        const WIN_CONDITIONS = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
+            [0, 4, 8], [2, 4, 6]             // Diagonais
+        ];
+
+        function createBoard() {
+            boardElement.innerHTML = '';
+            for (let i = 0; i < 9; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('tic-tac-toe-cell');
+                cell.setAttribute('data-index', i);
+                cell.addEventListener('click', () => handleCellClick(i));
+                boardElement.appendChild(cell);
+            }
+        }
+
+        function handleCellClick(index) {
+            if (board[index] !== "" || !gameActive) return;
+            
+            // Jogada do Player
+            updateCell(index, "❤️");
+            checkWinner();
+            
+            if (gameActive) {
+                gameMessage.innerText = "Pensando...";
+                // Trava tabuleiro enquanto bot joga
+                Array.from(boardElement.children).forEach(c => c.classList.add('disabled'));
+                setTimeout(botPlay, 600);
+            }
+        }
+
+        function updateCell(index, symbol) {
+            board[index] = symbol;
+            const cell = boardElement.children[index];
+            cell.innerText = symbol;
+            cell.classList.add('disabled'); // não clica mais
+        }
+
+        function botPlay() {
+            let emptyCells = [];
+            board.forEach((val, idx) => { if (val === "") emptyCells.push(idx); });
+            
+            if (emptyCells.length > 0) {
+                // Bot fácil: escolhe aleatório
+                const randomIdx = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+                updateCell(randomIdx, "🤖");
+                checkWinner();
+            }
+            
+            if (gameActive) {
+                gameMessage.innerText = "Sua vez, princesa!";
+                Array.from(boardElement.children).forEach((c, idx) => {
+                    if(board[idx] === "") c.classList.remove('disabled');
+                });
+            }
+        }
+
+        function checkWinner() {
+            let roundWon = false;
+            let winner = null;
+
+            for (let i = 0; i < WIN_CONDITIONS.length; i++) {
+                const [a, b, c] = WIN_CONDITIONS[i];
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    roundWon = true;
+                    winner = board[a];
+                    break;
+                }
+            }
+
+            if (roundWon) {
+                gameActive = false;
+                if (winner === "❤️") {
+                    gameMessage.innerHTML = "<span class='text-green-400'>Você venceu! Impressionante! 🥰</span>";
+                    endGameUnlock();
+                } else {
+                    // Robô venceu (raro, pois ele joga aleatório, mas possível)
+                    gameMessage.innerHTML = "<span class='text-red-400'>O robô ganhou! Mas o amor sempre vence. Tente de novo! 🔄</span>";
+                    setTimeout(resetGame, 2000);
+                }
+                return;
+            }
+
+            if (!board.includes("")) {
+                // Empate
+                gameActive = false;
+                gameMessage.innerHTML = "<span class='text-yellow-400'>Empate! O Guardião reconhece sua força. 🛡️</span>";
+                endGameUnlock();
+                return;
+            }
+        }
+
+        function endGameUnlock() {
+            unlockBtn.classList.remove('hidden');
+        }
+
+        function resetGame() {
+            board = ["", "", "", "", "", "", "", "", ""];
+            gameActive = true;
+            gameMessage.innerText = "Sua vez, princesa!";
+            createBoard();
+        }
+
+        // Inicializa o tabuleiro ao carregar
+        createBoard();
+
+        /* ==========================================
+           5. A GRANDE SURPRESA E BOTÃO FUJÃO
+           ========================================== */
+        function revealFinale() {
+            const modal = document.getElementById('surpresa-final');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        const noBtn = document.getElementById('noBtn');
+        const containerBox = document.getElementById('question-box');
+
+        function moveBtn() {
+            noBtn.style.position = 'absolute';
+            
+            const boxRect = containerBox.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+            
+            // Limites baseados na caixa de vidro
+            const maxX = boxRect.width - btnRect.width - 40;
+            const maxY = boxRect.height - btnRect.height - 40;
+            
+            // Posição aleatória segura
+            const newX = 20 + Math.random() * maxX;
+            const newY = 20 + Math.random() * maxY;
+            
+            noBtn.style.left = `${newX}px`;
+            noBtn.style.top = `${newY}px`;
+            noBtn.style.transform = `rotate(${(Math.random()-0.5)*30}deg)`; // Rotação louca
+        }
+
+        noBtn.addEventListener('mouseover', moveBtn);
+        noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveBtn(); }, {passive: false});
+        noBtn.addEventListener('click', (e) => { e.preventDefault(); moveBtn(); });
+
+        /* ==========================================
+           6. O GRANDE FINAL (BOTÃO SIM)
+           ========================================== */
+        const yesBtn = document.getElementById('yesBtn');
+        const successBox = document.getElementById('success-box');
+
+        yesBtn.addEventListener('click', () => {
+            document.getElementById('question-box').classList.add('hidden');
+            successBox.classList.remove('hidden');
+            
+            // Disparar chuva de confetes
+            createConfetti();
+        });
+
+        function createConfetti() {
+            const colors = ['#ff0000', '#ff69b4', '#ff1493', '#fff'];
+            for(let i=0; i<100; i++){
+                let conf = document.createElement('div');
+                conf.classList.add('confetti');
+                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                conf.style.left = `${Math.random() * 100}vw`;
+                conf.style.top = `-${Math.random() * 20}vh`;
+                
+                // Formatos variados
+                if(Math.random() > 0.5) conf.style.borderRadius = '50%';
+                
+                let duration = Math.random() * 3 + 2;
+                conf.style.animationDuration = `${duration}s`;
+                conf.style.animationDelay = `${Math.random() * 2}s`;
+                
+                document.body.appendChild(conf);
+                
+                // Limpar confetes depois de um tempo
+                setTimeout(() => conf.remove(), (duration + 2) * 1000);
+            }
+        }
+    </script>
+</body>
+</html>
